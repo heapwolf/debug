@@ -1,0 +1,9 @@
+{
+  "name": "debug",
+  "version": "0.0.1",
+  "repo": "hij1nx/debug",
+  "description": "a small, simple streaming debug logger for c++",
+  "keywords": ["stream", "logger"]
+  "src": ["debug.h"]
+}
+

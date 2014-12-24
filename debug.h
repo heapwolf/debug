@@ -5,30 +5,29 @@
 #include <sstream>
 #include <functional>
 
-using namespace std;
 class Debug : public std::ostream {
 
   private:
-    typedef function
-    <string (string name, string level, string data)> Formatter;
+    typedef std::function
+    <std::string (const std::string &name, const std::string &level, const std::string &data)> Formatter;
 
     Formatter formatter;
     bool hasFormatter = false;
   
-    const char* labels[4] = { "error", "warn", "info", "verbose" };
- 
-    class Buffer : public stringbuf {
+    class Buffer : public std::stringbuf {
 
       public:
         Debug *debug;
-        Buffer(ostream &str) : output(str) {}
+        Buffer(std::ostream &str) : output(str) {}
 
         int sync () {
+          static const char * labels[4] = { "error", "warn", "info", "verbose" };
+
           if (debug->currentLevel <= debug->maxLevel) {
             if (debug->hasFormatter) {
 
-              string name = debug->name;
-              string level = debug->labels[debug->currentLevel - 1];
+              std::string name = debug->name;
+              std::string level = labels[debug->currentLevel - 1];
 
               output 
                 << debug->formatter(name, level, str());
@@ -36,7 +35,7 @@ class Debug : public std::ostream {
             else {
               output 
                 << debug->name << " "
-                << debug->labels[debug->currentLevel - 1] << " "
+                << labels[debug->currentLevel - 1] << " "
                 << str();
             }
           }
@@ -46,7 +45,7 @@ class Debug : public std::ostream {
         }
 
       private:
-        ostream &output;
+        std::ostream &output;
     };
 
     Buffer buffer;
@@ -56,15 +55,15 @@ class Debug : public std::ostream {
 
     level currentLevel = verbose;
     level maxLevel = verbose;
-    string name = "";
+    std::string name;
 
-    void format(Formatter f) {
+    void format(const Formatter &f) {
       hasFormatter = true;
       formatter = f;
     }
 
-    Debug(string name, level maxLevel, ostream& stream) :
-      ostream(&buffer), 
+    Debug(const std::string &name, level maxLevel, std::ostream& stream) :
+      std::ostream(&buffer), 
       maxLevel(maxLevel), 
       name(name), 
       buffer(stream) {

@@ -36,7 +36,7 @@ int main() {
   //
   Debug c("test3", Debug::verbose, cout);
 
-  c.format([](auto name, auto level, auto data) {
+  c.format([](const std::string &name, const std::string &level, const std::string &data) {
     return name + ":" + level + ":" + data;
   });
 

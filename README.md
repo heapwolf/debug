@@ -17,11 +17,16 @@ build add heapwolf/debug
 If the `DEBUG` environment variable is contained in the `name` that the instance
 is contstructed with, the debug output be printed. For example...
 
+
+#### COMMAND
 ```bash
 DEBUG=bands ./musicprogram
 ```
 
+#### CODE
 ```c++
+#include "./deps/heapwolf/debug/index.hxx"
+
 Debug d("bands");
 
 //
@@ -30,6 +35,11 @@ Debug d("bands");
 d("danzig", 100, 'x');
 ```
 
+#### OUTPUT
+
+```
+bands danzig 100 x
+```
 
 # TEST
 

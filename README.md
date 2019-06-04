@@ -11,7 +11,7 @@ This module is designed to work with the [`datcxx`][0] build tool. To add this
 module to your project us the following command...
 
 ```bash
-build add datcxx/util-string
+build add heapwolf/debug
 ```
 
 If the `DEBUG` environment variable is contained in the `name` that the instance

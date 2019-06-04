@@ -1,9 +1,28 @@
 {
-  "name": "debug",
-  "version": "0.0.1",
-  "repo": "hij1nx/debug",
-  "description": "a small, simple streaming debug logger for c++",
-  "keywords": ["stream", "logger"],
-  "src": ["debug.h"]
+  "name": "",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:heapwolf/debug.git"
+  },
+  "dependencies": {},
+  "license": "MIT",
+  "scripts": {
+    "test": [
+      "clang++ -std=c++2a -stdlib=libc++",
+      "test/index.cxx -o test/index && ./test/index"
+    ],
+    "install": ""
+  },
+  "flags": [
+    "-std=c++2a",
+    "-stdlib=stdc++",
+    "-O3"
+  ],
+  "files": [
+    "index.hxx"
+  ],
+  "devDependencies": {
+    "git@github.com:heapwolf/cxx-tap": "07821de0"
+  }
 }
-

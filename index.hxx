@@ -74,6 +74,8 @@ class Debug {
         if (!std::regex_match(this->name, std::regex(res))) {
           return; // the env var does not contain the name
         }
+      } else {
+        return;
       }
 
       //

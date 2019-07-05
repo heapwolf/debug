@@ -12,7 +12,10 @@
       "clang++ -std=c++2a -stdlib=libc++",
       "test/index.cxx -o test/index && ./test/index"
     ],
-    "install": ""
+    "demo": [
+      "clang++ -std=c++2a -stdlib=libc++",
+      "test/demo.cxx -o test/demo && ./test/demo"
+    ]
   },
   "flags": [
     "-std=c++2a",

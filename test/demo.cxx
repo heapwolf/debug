@@ -3,17 +3,16 @@
 Debug debug("demo");
 Debug debug3("demo:beep");
 
-int f3 () {
+void f3 () {
   Debug debug2("demo:boop");
   debug2("running function f3");
   debug3("running function f3");
-  return 0;
 }
 
 
-int f2 () {
+void f2 () {
   debug("running function f2");
-  return f3();
+  f3();
 }
 
 int main () {

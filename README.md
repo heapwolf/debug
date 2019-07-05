@@ -14,9 +14,10 @@ module to your project us the following command...
 build add heapwolf/debug
 ```
 
-If the `DEBUG` environment variable is contained in the `name` that the instance
-is contstructed with, the debug output be printed. For example...
+Construct an instance of `Debug` with a name. The instance will allow you to
+toggle the debug output for different parts of your program.
 
+The DEBUG environment variable is used to enable these based on delimited names.
 
 #### COMMAND
 ```bash
@@ -30,17 +31,15 @@ DEBUG=bands ./musicprogram
 Debug debug("demo");
 Debug debug3("demo:beep");
 
-int f3 () {
+void f3 () {
   Debug debug2("demo:boop");
   debug2("running function f3");
   debug3("running function f3");
-  return 0;
 }
 
-
-int f2 () {
+void f2 () {
   debug("running function f2");
-  return f3();
+  f3();
 }
 
 int main () {

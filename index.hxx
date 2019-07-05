@@ -14,7 +14,7 @@ class Debug {
   using Str = std::string;
 
   Str name = "";
-  std::ostream& output = std::cout;
+  std::ostream& output = std::cerr;
 
   inline static std::map<Str, Str> colors;
   inline static int colorIndex = 0;

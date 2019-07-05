@@ -1,10 +1,5 @@
 # SYNOPSIS
-A small debugging library inspired by [this][0].
-
-# MOTIVATION
-I was trying to log  something in C++ and remembered two things... 1. the
-only way to log  anything in C++ is with a huge obnoxious framework and 2.
-seriously, GTFO.
+A minimalist debugging library inspired by [this][0].
 
 # USAGE
 

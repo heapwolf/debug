@@ -19,11 +19,6 @@ toggle the debug output for different parts of your program.
 
 The DEBUG environment variable is used to enable these based on delimited names.
 
-#### COMMAND
-```bash
-DEBUG=bands ./musicprogram
-```
-
 #### CODE
 ```c++
 #include "./deps/heapwolf/debug/index.hxx"

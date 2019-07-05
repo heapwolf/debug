@@ -50,6 +50,11 @@ int main () {
 }
 ```
 
+When actively developing an application it can be useful to see when the time
+spent between one debug() call and the next. Suppose for example you invoke
+debug(...) before requesting a resource, and after as well, the "+NNNms" will
+show you how much time was spent between calls.
+
 #### OUTPUT
 ![example](/docs/screenshot.png)
 

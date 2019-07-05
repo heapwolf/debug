@@ -14,6 +14,7 @@ class Debug {
   using Str = std::string;
 
   Str name = "";
+  bool enabled = false;
   std::ostream& output = std::cerr;
 
   inline static std::map<Str, Str> colors;
@@ -24,6 +25,22 @@ class Debug {
   clock_t::time_point start;
 
   void init () {
+    const auto envp = std::getenv("DEBUG");
+
+    if (envp != nullptr) {
+      auto env = Str(envp);
+
+      const auto res = replace(env, "*", "(.*)");
+
+      if (!std::regex_match(this->name, std::regex(res))) {
+        return; // the env var does not contain the name
+      }
+    } else {
+      return;
+    }
+
+    this->enabled = true;
+
     start = clock_t::now();
 
     if (Debug::colorIndex == 255) {
@@ -64,17 +81,7 @@ class Debug {
 
     template <typename ...Args> 
     void operator() (Args&&... args) {
-      const auto envp = std::getenv("DEBUG");
-
-      if (envp != nullptr) {
-        auto env = Str(envp);
-
-        const auto res = replace(env, "*", "(.*)");
-
-        if (!std::regex_match(this->name, std::regex(res))) {
-          return; // the env var does not contain the name
-        }
-      } else {
+      if (!this->enabled) {
         return;
       }
 
@@ -111,6 +118,11 @@ class Debug {
       // Print EOL.
       //
       this->output << std::endl;
+
+      //
+      // Reset the timer.
+      //
+      start = clock_t::now();
     }
 };
 

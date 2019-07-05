@@ -41,7 +41,7 @@ class Debug {
 
     this->enabled = true;
 
-    start = clock_t::now();
+    this->start = clock_t::now();
 
     if (Debug::colorIndex == 255) {
       Debug::colorIndex = 0;
@@ -122,7 +122,7 @@ class Debug {
       //
       // Reset the timer.
       //
-      start = clock_t::now();
+      this->start = clock_t::now();
     }
 };
 

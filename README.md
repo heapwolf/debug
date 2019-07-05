@@ -7,6 +7,8 @@ only way to log  anything in C++ is with a huge obnoxious framework and 2.
 seriously, GTFO.
 
 # USAGE
+
+#### INSTALL
 This module is designed to work with the [`datcxx`][0] build tool. To add this
 module to your project us the following command...
 
@@ -14,12 +16,12 @@ module to your project us the following command...
 build add heapwolf/debug
 ```
 
+#### CODE
 Construct an instance of `Debug` with a name. The instance will allow you to
 toggle the debug output for different parts of your program.
 
 The DEBUG environment variable is used to enable these based on delimited names.
 
-#### CODE
 ```c++
 #include "./deps/heapwolf/debug/index.hxx"
 
